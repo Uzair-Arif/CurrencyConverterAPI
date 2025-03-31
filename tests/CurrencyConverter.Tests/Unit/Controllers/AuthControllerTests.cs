@@ -1,5 +1,5 @@
 using System.Net;
-using CurrencyConverter.API.Controllers;
+using CurrencyConverter.API.Controllers.v1;
 using CurrencyConverter.API.Models;
 using CurrencyConverter.Application.Interfaces;
 using FluentAssertions;

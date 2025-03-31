@@ -1,5 +1,7 @@
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/appsettings.Development.json
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/appsettings.json
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/appsettings.Production.json
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/appsettings.Staging.json
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/CurrencyConverter.API
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/CurrencyConverter.API.deps.json
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/CurrencyConverter.API.runtimeconfig.json
@@ -287,6 +289,8 @@
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/FluentValidation.DependencyInjectionExtensions.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.AspNetCore.Mvc.Versioning.dll
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.Bcl.Memory.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
@@ -294,6 +298,7 @@
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.Extensions.Caching.Abstractions.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Binder.dll
@@ -330,6 +335,7 @@
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/OpenTelemetry.Extensions.Hosting.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/OpenTelemetry.Instrumentation.AspNetCore.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/OpenTelemetry.Instrumentation.Http.dll
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Pipelines.Sockets.Unofficial.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Polly.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Polly.Core.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Polly.Extensions.Http.dll
@@ -344,6 +350,7 @@
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Serilog.Sinks.Debug.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Serilog.Sinks.File.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Serilog.Sinks.Seq.dll
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/StackExchange.Redis.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll

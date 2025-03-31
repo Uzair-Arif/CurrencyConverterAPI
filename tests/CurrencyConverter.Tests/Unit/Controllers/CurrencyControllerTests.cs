@@ -3,11 +3,11 @@ using NSubstitute;
 using FluentAssertions;
 using FluentValidation;
 using FluentValidation.Results;
-using CurrencyConverter.API.Controllers;
 using CurrencyConverter.Application.Interfaces;
 using CurrencyConverter.Application.Models.Request;
 using CurrencyConverter.Application.Models.Response;
 using NSubstitute.ExceptionExtensions;
+using CurrencyConverter.API.Controllers.v1;
 
 namespace CurrencyConverter.Tests.Controllers
 {

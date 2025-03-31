@@ -1,19 +1,21 @@
 using CurrencyConverter.Infrastructure.Caching;
-using Microsoft.Extensions.Caching.Memory;
 using NSubstitute;
 using FluentAssertions;
+using Microsoft.Extensions.Caching.Distributed;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace CurrencyConverter.Tests.Infrastructure.Caching
 {
     public class MemoryCacheServiceTests
     {
-        private readonly IMemoryCache _memoryCache;
-        private readonly MemoryCacheService _cacheService;
+        private readonly IDistributedCache _redisCache;
+        private readonly RedisCacheService _cacheService;
 
         public MemoryCacheServiceTests()
         {
-            _memoryCache = Substitute.For<IMemoryCache>();
-            _cacheService = new MemoryCacheService(_memoryCache);
+            _redisCache = Substitute.For<IDistributedCache>();
+            _cacheService = new RedisCacheService(_redisCache);
         }
 
         [Fact]
@@ -22,14 +24,11 @@ namespace CurrencyConverter.Tests.Infrastructure.Caching
             // Arrange
             var key = "test-key";
             var expectedValue = "cached-value";
-            object cacheEntry = expectedValue;
+            var serializedValue = JsonConvert.SerializeObject(expectedValue); // Serialize value as JSON
+            var expectedBytes = Encoding.UTF8.GetBytes(serializedValue); // Convert to byte array
 
-            _memoryCache.TryGetValue(key, out Arg.Any<object>())
-                        .Returns(call =>
-                        {
-                            call[1] = cacheEntry; // Simulate setting the output parameter
-                            return true;
-                        });
+            _redisCache.GetAsync(key, Arg.Any<CancellationToken>())
+                       .Returns(Task.FromResult(expectedBytes)); // Return JSON byte array
 
             // Act
             var result = await _cacheService.GetAsync<string>(key);
@@ -44,8 +43,8 @@ namespace CurrencyConverter.Tests.Infrastructure.Caching
             // Arrange
             var key = "non-existent-key";
 
-            _memoryCache.TryGetValue(key, out Arg.Any<object>())
-                        .Returns(false);
+            _redisCache.GetAsync(key, Arg.Any<CancellationToken>())
+                       .Returns(Task.FromResult<byte[]>(null)); // Return null byte[]
 
             // Act
             var result = await _cacheService.GetAsync<string>(key);
@@ -62,11 +61,18 @@ namespace CurrencyConverter.Tests.Infrastructure.Caching
             var value = "cached-value";
             var expiration = TimeSpan.FromMinutes(5);
 
+            var serializedValue = JsonConvert.SerializeObject(value); // Serialize to JSON
+            var expectedBytes = Encoding.UTF8.GetBytes(serializedValue); // Convert to byte array
+
             // Act
             await _cacheService.SetAsync(key, value, expiration);
 
             // Assert
-            _memoryCache.Received(1).Set(key, value, expiration);
+            await _redisCache.Received(1).SetAsync(
+                key,
+                Arg.Is<byte[]>(v => v.SequenceEqual(expectedBytes)), // Verify stored value matches serialized bytes
+                Arg.Is<DistributedCacheEntryOptions>(o => o.AbsoluteExpirationRelativeToNow == expiration),
+                Arg.Any<CancellationToken>());
         }
     }
 }

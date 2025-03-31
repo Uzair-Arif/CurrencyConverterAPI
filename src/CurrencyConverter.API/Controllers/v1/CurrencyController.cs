@@ -4,10 +4,11 @@ using CurrencyConverter.Application.Interfaces;
 using FluentValidation;
 using CurrencyConverter.Application.Models.Request;
 
-namespace CurrencyConverter.API.Controllers
+namespace CurrencyConverter.API.Controllers.v1
 {
-    [Route("api/currency")]
     [ApiController]
+    [Route("api/v{version:apiVersion}/currency")]
+    [ApiVersion("1.0")]
     public class CurrencyController : ControllerBase
     {
         private readonly ICurrencyService _currencyService;

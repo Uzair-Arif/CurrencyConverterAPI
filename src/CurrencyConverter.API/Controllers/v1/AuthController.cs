@@ -2,10 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using CurrencyConverter.API.Models;
 using CurrencyConverter.Application.Interfaces;
 
-namespace CurrencyConverter.API.Controllers
+namespace CurrencyConverter.API.Controllers.v1 
 {
-    [Route("api/auth")]
     [ApiController]
+    [Route("api/v{version:apiVersion}/auth")] 
+    [ApiVersion("1.0")]
     public class AuthController : ControllerBase
     {
         private readonly ITokenService _tokenService;

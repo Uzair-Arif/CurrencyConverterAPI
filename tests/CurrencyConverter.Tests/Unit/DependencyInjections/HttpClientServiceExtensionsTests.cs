@@ -19,12 +19,15 @@ public class HttpClientServiceExtensionsTests
             {
             { "ExchangeRateProviders:Frankfurter:BaseUrl", "https://api.frankfurter.app" },
             { "OpenTelemetry:Tracing:OtlpEndpoint", "http://localhost:4317" },
-            { "OpenTelemetry:Tracing:ZipkinEndpoint", "http://localhost:9411/api/v2/spans" }
+            { "OpenTelemetry:Tracing:ZipkinEndpoint", "http://localhost:9411/api/v2/spans" },
+            { "Redis:ConnectionString", "localhost:6379" },
+            { "Redis:InstanceName", "CurrencyConverter" },
+            { "Redis:ExpirationInMinutes", "5" }
             })
             .Build();
 
         // Register caching services
-        services.AddCachingServices();
+        services.AddCachingServices(configuration);
 
         // // Register OpenTelemetry tracing
         services.AddTelemetryServices(configuration);

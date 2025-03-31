@@ -5,8 +5,35 @@ using Microsoft.OpenApi.Models;
 using CurrencyConverter.Application;
 using CurrencyConverter.API.DependencyInjection;
 using CurrencyConverter.Infrastructure.DependencyInjection;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Load environment-specific configuration
+var environment = builder.Environment.EnvironmentName;
+
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{environment}.json", optional: true, reloadOnChange: true)
+    .AddEnvironmentVariables();
+
+// Add API Versioning
+builder.Services.AddApiVersioning(options =>
+{
+    options.ReportApiVersions = true;
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new ApiVersion(1, 0); // Default API version: v1.0
+    options.ApiVersionReader = new UrlSegmentApiVersionReader(); // Enables versioning via URL
+});
+
+// Add API Explorer to support versioned endpoints in Swagger
+builder.Services.AddVersionedApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'VVV"; // Formats version as "v1", "v2"
+    options.SubstituteApiVersionInUrl = true; // Replaces placeholders with version numbers
+});
 
 builder.Host.AddLoggingServices(builder.Configuration);
 
@@ -50,7 +77,7 @@ builder.Services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrateg
 
 // Register infrastructure services
 builder.Services.AddTelemetryServices(builder.Configuration);
-builder.Services.AddCachingServices();
+builder.Services.AddCachingServices(builder.Configuration);
 builder.Services.AddHttpClientServices(builder.Configuration);
 builder.Services.AddFactoryServices();
 
