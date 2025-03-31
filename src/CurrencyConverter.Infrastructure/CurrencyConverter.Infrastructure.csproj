@@ -22,8 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CurrencyConverter.Application\CurrencyConverter.Application.csproj" />
-    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.0.0-rc9" />
-  <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.0.0-rc9" />
   </ItemGroup>
 
 </Project>

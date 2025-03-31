@@ -54,23 +54,7 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
-            "FluentValidation": {
-              "target": "Package",
-              "version": "[11.11.0, )"
-            },
-            "FluentValidation.AspNetCore": {
-              "target": "Package",
-              "version": "[11.3.0, )"
-            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Microsoft.AspNetCore.Identity": {
-              "target": "Package",
-              "version": "[2.3.1, )"
-            },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.0, )"
             },
@@ -85,42 +69,6 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.3, )"
-            },
-            "Microsoft.Extensions.Caching.Memory": {
-              "target": "Package",
-              "version": "[9.0.3, )"
-            },
-            "OpenTelemetry.Exporter.Console": {
-              "target": "Package",
-              "version": "[1.11.2, )"
-            },
-            "OpenTelemetry.Exporter.OpenTelemetryProtocol": {
-              "target": "Package",
-              "version": "[1.11.2, )"
-            },
-            "OpenTelemetry.Exporter.Zipkin": {
-              "target": "Package",
-              "version": "[1.11.2, )"
-            },
-            "OpenTelemetry.Extensions.Hosting": {
-              "target": "Package",
-              "version": "[1.11.2, )"
-            },
-            "OpenTelemetry.Instrumentation.AspNetCore": {
-              "target": "Package",
-              "version": "[1.11.1, )"
-            },
-            "OpenTelemetry.Instrumentation.Http": {
-              "target": "Package",
-              "version": "[1.11.1, )"
-            },
-            "Polly": {
-              "target": "Package",
-              "version": "[8.5.2, )"
-            },
-            "Scrutor": {
-              "target": "Package",
-              "version": "[6.0.1, )"
             },
             "Serilog.AspNetCore": {
               "target": "Package",
