@@ -1,44 +1,78 @@
+using CurrencyConverter.Application.Services.Security;
+using AspNetCoreRateLimit;
+using Serilog;
+using Microsoft.OpenApi.Models;
+using CurrencyConverter.Application;
+using CurrencyConverter.API.DependencyInjection;
+using CurrencyConverter.Infrastructure.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Host.AddLoggingServices(builder.Configuration);
+
+builder.Services.AddControllers();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Currency Converter API", Version = "v1" });
+
+    // Add JWT Authentication Support in Swagger UI
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Enter 'Bearer {your_token_here}'"
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
+                },
+                new string[] { }
+            }
+    });
+});
+
+builder.Services.AddAuthenticationServices(builder.Configuration);
+builder.Services.AddSingleton<TokenService>();
+builder.Services.AddRateLimitingServices(builder.Configuration);
+
+builder.Services.AddApplicationServices();
+
+
+// Add Missing IProcessingStrategy (Fix)
+builder.Services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
+
+// Register infrastructure services
+builder.Services.AddTelemetryServices(builder.Configuration);
+builder.Services.AddCachingServices();
+builder.Services.AddHttpClientServices(builder.Configuration);
+builder.Services.AddFactoryServices();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Enable Swagger Middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Currency Converter API v1"));
 }
 
-app.UseHttpsRedirection();
+// Enable Middleware
+app.UseMiddleware<RequestLoggingMiddleware>(); // Custom request logging
+app.UseSerilogRequestLogging(); // Standard Serilog request logging
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseIpRateLimiting();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
-
+app.MapControllers();
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+public partial class Program { }

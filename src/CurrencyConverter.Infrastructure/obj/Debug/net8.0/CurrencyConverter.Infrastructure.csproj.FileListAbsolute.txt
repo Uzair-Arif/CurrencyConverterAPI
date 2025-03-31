@@ -1,0 +1,16 @@
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/bin/Debug/net8.0/CurrencyConverter.Infrastructure.deps.json
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/bin/Debug/net8.0/CurrencyConverter.Infrastructure.dll
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/bin/Debug/net8.0/CurrencyConverter.Infrastructure.pdb
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/bin/Debug/net8.0/CurrencyConverter.Application.dll
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/bin/Debug/net8.0/CurrencyConverter.Application.pdb
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/obj/Debug/net8.0/CurrencyConverter.Infrastructure.csproj.AssemblyReference.cache
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/obj/Debug/net8.0/CurrencyConverter.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/obj/Debug/net8.0/CurrencyConverter.Infrastructure.AssemblyInfoInputs.cache
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/obj/Debug/net8.0/CurrencyConverter.Infrastructure.AssemblyInfo.cs
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/obj/Debug/net8.0/CurrencyConverter.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/obj/Debug/net8.0/CurrencyConverter.Infrastructure.sourcelink.json
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/obj/Debug/net8.0/Currency.152E3FAF.Up2Date
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/obj/Debug/net8.0/CurrencyConverter.Infrastructure.dll
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/obj/Debug/net8.0/refint/CurrencyConverter.Infrastructure.dll
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/obj/Debug/net8.0/CurrencyConverter.Infrastructure.pdb
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Infrastructure/obj/Debug/net8.0/ref/CurrencyConverter.Infrastructure.dll

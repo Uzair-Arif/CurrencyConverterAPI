@@ -1,0 +1,13 @@
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/bin/Debug/net8.0/CurrencyConverter.Application.deps.json
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/bin/Debug/net8.0/CurrencyConverter.Application.dll
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/bin/Debug/net8.0/CurrencyConverter.Application.pdb
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/obj/Debug/net8.0/CurrencyConverter.Application.csproj.AssemblyReference.cache
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/obj/Debug/net8.0/CurrencyConverter.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/obj/Debug/net8.0/CurrencyConverter.Application.AssemblyInfoInputs.cache
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/obj/Debug/net8.0/CurrencyConverter.Application.AssemblyInfo.cs
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/obj/Debug/net8.0/CurrencyConverter.Application.csproj.CoreCompileInputs.cache
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/obj/Debug/net8.0/CurrencyConverter.Application.sourcelink.json
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/obj/Debug/net8.0/CurrencyConverter.Application.dll
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/obj/Debug/net8.0/refint/CurrencyConverter.Application.dll
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/obj/Debug/net8.0/CurrencyConverter.Application.pdb
+/Users/uzairarif/CurrencyConverterAPI/src/CurrencyConverter.Application/obj/Debug/net8.0/ref/CurrencyConverter.Application.dll
