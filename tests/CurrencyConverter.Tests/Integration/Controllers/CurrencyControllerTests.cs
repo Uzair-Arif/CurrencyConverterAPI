@@ -114,8 +114,8 @@ public class CurrencyControllerTests : IClassFixture<CustomWebApplicationFactory
     public async Task GetRates_ShouldReturn500_WhenProviderFails()
     {
         // Arrange
-         _currencyService.GetLatestRatesAsync("USD", provider: "FrankfurterAPI")
-                        .Throws(new Exception("Provider failure"));
+        _currencyService.GetLatestRatesAsync("USD", provider: "FrankfurterAPI")
+                       .Throws(new Exception("Provider failure"));
 
         _frankfurtProvider.GetLatestRatesAsync(Arg.Any<string>(), Arg.Any<string>())
                              .Throws(new Exception("Provider failure"));
@@ -178,7 +178,7 @@ public class CurrencyControllerTests : IClassFixture<CustomWebApplicationFactory
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
 
-     // GetHistoricalRates Tests
+    // GetHistoricalRates Tests
 
     [Fact]
     public async Task GetHistoricalRates_ShouldReturn200_WhenValidRequest()
