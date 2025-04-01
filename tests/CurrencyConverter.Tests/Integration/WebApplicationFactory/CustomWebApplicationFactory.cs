@@ -4,10 +4,6 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Options;
-using Microsoft.Extensions.Logging;
-using System.Security.Claims;
-using System.Text.Encodings.Web;
 using NSubstitute;
 using CurrencyConverter.Application.Interfaces;
 
@@ -17,7 +13,9 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
     public IExchangeRateProviderFactory ProviderFactoryMock { get; } = Substitute.For<IExchangeRateProviderFactory>();
     public IExchangeRateProvider FrankfurtProviderMock { get; } = Substitute.For<IExchangeRateProvider>();
+    public ICurrencyService CurrencyServiceMock { get; } = Substitute.For<ICurrencyService>();
 
+    public CustomWebApplicationFactory() : this(true) { }
     public CustomWebApplicationFactory(bool enableAuth = true)
     {
         _enableAuth = enableAuth;
@@ -27,48 +25,29 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {
         builder.ConfigureTestServices(services =>
         {
-            
             services.RemoveAll<IExchangeRateProvider>();
             services.RemoveAll<IExchangeRateProviderFactory>();
+            services.RemoveAll<ICurrencyService>();
 
-            
             ProviderFactoryMock.GetProvider("FrankfurterAPI").Returns(FrankfurtProviderMock);
-
             services.AddSingleton(ProviderFactoryMock);
             services.AddSingleton(FrankfurtProviderMock);
+            services.AddSingleton(CurrencyServiceMock);
 
-            
             var providerList = new List<IExchangeRateProvider> { FrankfurtProviderMock };
             services.AddSingleton<IEnumerable<IExchangeRateProvider>>(providerList);
 
             if (_enableAuth)
             {
-                
                 services.AddAuthentication("Test")
                     .AddScheme<AuthenticationSchemeOptions, TestAuthHandler>("Test", null);
             }
             else
             {
-                
+                // Instead of removing, replace with a mock that prevents errors
                 services.RemoveAll<IAuthenticationSchemeProvider>();
+                services.AddSingleton<IAuthenticationSchemeProvider, TestAuthenticationSchemeProvider>();
             }
         });
-    }
-}
-
-//   **Custom Authentication Handler (Mocks JWT authentication)**
-public class TestAuthHandler : AuthenticationHandler<AuthenticationSchemeOptions>
-{
-    public TestAuthHandler(IOptionsMonitor<AuthenticationSchemeOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)
-        : base(options, logger, encoder, clock) { }
-
-    protected override Task<AuthenticateResult> HandleAuthenticateAsync()
-    {
-        var claims = new[] { new Claim(ClaimTypes.Name, "TestUser"), new Claim(ClaimTypes.Role, "User") };
-        var identity = new ClaimsIdentity(claims, "Test");
-        var principal = new ClaimsPrincipal(identity);
-        var ticket = new AuthenticationTicket(principal, "Test");
-
-        return Task.FromResult(AuthenticateResult.Success(ticket));
     }
 }

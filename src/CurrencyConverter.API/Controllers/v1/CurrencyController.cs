@@ -28,7 +28,7 @@ namespace CurrencyConverter.API.Controllers.v1
         }
 
         [HttpGet("rates")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetRates([FromQuery] GetRatesRequest request)
         {
             var validationResult = await _getRatesValidator.ValidateAsync(request);
