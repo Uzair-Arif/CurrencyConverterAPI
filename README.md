@@ -7,7 +7,7 @@ The **Currency Converter API** allows users to:
 - Convert currencies.
 - Access historical exchange rates for a given period.
 
-The API implements security and performance features like **JWT authentication**, **rate-limiting**, **caching**, **retry policies**, and **structured logging**. It is designed with **Clean Architecture principles** to ensure scalability and maintainability. The API integrates external services (i.e, Frankfurter API for exchange rates) and is configured for future enhancements, including **CI/CD deployment readiness** and **AWS scaling considerations**.
+The API implements security and performance features like **JWT authentication**, **rate-limiting**, **caching**, **retry policies**, and **structured logging**. It is designed with **Clean Architecture principles** to ensure scalability and maintainability. The API integrates external services (i.e Frankfurter API for exchange rates) and is configured for future enhancements, including **CI/CD deployment readiness** and **AWS scaling considerations**.
 
 Additionally, the API uses the **Factory Design Pattern** to support the integration of future exchange rate providers with minimal changes to the existing codebase.
 
