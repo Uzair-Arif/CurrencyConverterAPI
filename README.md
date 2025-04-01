@@ -9,6 +9,8 @@ The **Currency Converter API** allows users to:
 
 The API implements security and performance features like **JWT authentication**, **rate-limiting**, **caching**, **retry policies**, and **structured logging**. It is designed with **Clean Architecture principles** to ensure scalability and maintainability. The API integrates external services (e.g., Frankfurter API for exchange rates) and is configured for future enhancements, including **CI/CD deployment readiness** and **AWS scaling considerations**.
 
+Additionally, the API uses the **Factory Design Pattern** to support the integration of future exchange rate providers with minimal changes to the existing codebase.
+
 ## Features
 
 1. **Retrieve Latest Exchange Rates**: Fetch the latest exchange rates for a specified base currency.
@@ -85,7 +87,7 @@ The application’s settings are defined in `appsettings.json`. Below is an exam
 The test coverage report can be found under the following directory:
 
 ```
-/CurrencyConverterAPI/CurrencyConverter.Tests.Internal/TestResults/CoverageReport
+/Users/uzairarif/CurrencyConverterAPI/CurrencyConverter.Tests.Internal/TestResults/CoverageReport
 ```
 
 Open the `index.html` file in this directory to view the detailed test coverage report in your browser.
