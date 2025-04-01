@@ -87,7 +87,7 @@ The application’s settings are defined in `appsettings.json`. Below is an exam
 The test coverage report can be found under the following directory:
 
 ```
-/Users/uzairarif/CurrencyConverterAPI/CurrencyConverter.Tests.Internal/TestResults/CoverageReport
+/CurrencyConverterAPI/CurrencyConverter.Tests.Internal/TestResults/CoverageReport
 ```
 
 Open the `index.html` file in this directory to view the detailed test coverage report in your browser.
