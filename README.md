@@ -35,7 +35,7 @@ Additionally, the API uses the **Factory Design Pattern** to support the integra
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-repo/currency-converter-api.git
+git clone https://github.com/Uzair-Arif/CurrencyConverterAPI.git
 cd currency-converter-api
 ```
 
