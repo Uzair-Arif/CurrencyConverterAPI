@@ -92,6 +92,10 @@ The test coverage report can be found under the following directory:
 
 Open the `index.html` file in this directory to view the detailed test coverage report in your browser.
 
+Below is a screenshot of the current test coverage
+
+![Code Coverage](image.png)
+
 ## Future Enhancements
 
 1. **Database Integration**: Implement a database for storing user and transaction data (e.g., ASP.NET Identity).
