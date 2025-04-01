@@ -94,7 +94,7 @@ Open the `index.html` file in this directory to view the detailed test coverage 
 
 Below is a screenshot of the current test coverage
 
-![Code Coverage](image.png)
+![Code Coverage](CodeCoverage.png)
 
 ## Future Enhancements
 
