@@ -26,7 +26,7 @@ namespace CurrencyConverter.Application.Services.Security
             var claims = new[]
             {
             new Claim(JwtRegisteredClaimNames.Sub, username),
-            new Claim(ClaimTypes.Role, role), // FIXED: Now using ClaimTypes.Role
+            new Claim(ClaimTypes.Role, role),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 

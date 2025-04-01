@@ -283,47 +283,4 @@ public class FrankfurterExchangeRateProviderTests
             .Should().ThrowAsync<InvalidOperationException>()
             .WithMessage("The response from the exchange rate provider was not in the expected format.");
     }
-
-    // [Fact]
-    // public async Task CircuitBreaker_ShouldReset_AfterOpenState()
-    // {
-    //     // Arrange
-    //     var failureResponse = new Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>((_, _) =>
-    //         Task.FromResult(new HttpResponseMessage(HttpStatusCode.InternalServerError)));
-
-    //     var successResponse = new Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>((_, _) =>
-    //         Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)
-    //         {
-    //             Content = new StringContent("{ \"base\": \"USD\", \"rates\": { \"EUR\": 0.85 } }")
-    //         }));
-
-    //     // Simulate 3 failures to trip the circuit breaker
-    //     _fakeHandler.SetResponse(failureResponse);
-    //     await Assert.ThrowsAsync<HttpRequestException>(() => _provider.GetLatestRatesAsync("USD", "EUR"));
-    //     await Assert.ThrowsAsync<HttpRequestException>(() => _provider.GetLatestRatesAsync("USD", "EUR"));
-    //     await Assert.ThrowsAsync<HttpRequestException>(() => _provider.GetLatestRatesAsync("USD", "EUR"));
-
-    //     // At this point, the circuit breaker should be open
-    //     _fakeHandler.SetResponse(successResponse);
-    //     await Assert.ThrowsAsync<BrokenCircuitException>(() => _provider.GetLatestRatesAsync("USD", "EUR"));
-
-    //     // Wait for the circuit breaker to reset
-    //     await Task.Delay(TimeSpan.FromSeconds(35)); // Ensure it's greater than the break duration
-
-    //     // Call again, this time expecting success
-    //     var result = await _provider.GetLatestRatesAsync("USD", "EUR");
-
-    //     // Assert: Verify the response is now successful
-    //     result.Should().NotBeNull();
-    //     result.Rates.Should().ContainKey("EUR");
-
-    //     // Verify "Circuit Breaker reset." log was triggered
-    //     _logger.Received(1).Log(
-    //         LogLevel.Information,
-    //         Arg.Any<EventId>(),
-    //         Arg.Is<object>(o => o.ToString().Contains("Circuit Breaker reset.")),
-    //         Arg.Any<Exception>(),
-    //         Arg.Any<Func<object, Exception, string>>()
-    //     );
-    // }
 }
