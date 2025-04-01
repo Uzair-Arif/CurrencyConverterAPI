@@ -80,6 +80,16 @@ The application’s settings are defined in `appsettings.json`. Below is an exam
 }
 ```
 
+## Test Coverage
+
+The test coverage report can be found under the following directory:
+
+```
+/CurrencyConverterAPI/CurrencyConverter.Tests.Internal/TestResults/CoverageReport
+```
+
+Open the `index.html` file in this directory to view the detailed test coverage report in your browser.
+
 ## Future Enhancements
 
 1. **Database Integration**: Implement a database for storing user and transaction data (e.g., ASP.NET Identity).
