@@ -96,6 +96,11 @@ Below is a screenshot of the current test coverage
 
 ![Code Coverage](CodeCoverage.png)
 
+## Assumptions
+
+1. **Historical Rates Caching**: Historical rates fetching has not been cached because it depends on date selection, and dates can vary significantly. Caching such responses is not performance-efficient. However, we may monitor such scenarios and introduce caching later if needed.
+2. **In-Memory Authentication**: As a proof of concept (POC), an in-memory username and password are created to demonstrate JWT authentication. Ideally, this should be implemented using **ASP.NET Identity** for production-grade applications.
+
 ## Future Enhancements
 
 1. **Database Integration**: Implement a database for storing user and transaction data (e.g., ASP.NET Identity).
