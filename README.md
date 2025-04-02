@@ -102,3 +102,4 @@ Below is a screenshot of the current test coverage
 2. **CI/CD Implementation**: Complete the CI/CD pipelines for automatic deployment and scaling on AWS.
 3. **Test Refactoring**: Refactor unit and integration tests for improved maintainability and coverage.
 4. **Additional Providers**: Integrate other exchange rate providers for flexibility.
+5. **Swagger Examples**: Add detailed Swagger examples for all API endpoints to improve developer experience and provide interactive API documentation.
