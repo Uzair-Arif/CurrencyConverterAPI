@@ -72,9 +72,6 @@ builder.Services.AddRateLimitingServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 
 
-// Add Missing IProcessingStrategy (Fix)
-builder.Services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
-
 // Register infrastructure services
 builder.Services.AddTelemetryServices(builder.Configuration);
 builder.Services.AddCachingServices(builder.Configuration);

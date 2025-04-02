@@ -2,29 +2,28 @@ using Microsoft.Extensions.Caching.Distributed;
 using CurrencyConverter.Application.Interfaces;
 using Newtonsoft.Json;
 
-namespace CurrencyConverter.Infrastructure.Caching
+namespace CurrencyConverter.Infrastructure.Caching;
+
+public class RedisCacheService : ICacheService
 {
-    public class RedisCacheService : ICacheService
+    private readonly IDistributedCache _cache;
+
+    public RedisCacheService(IDistributedCache cache) => _cache = cache;
+
+    public async Task<T?> GetAsync<T>(string key)
     {
-        private readonly IDistributedCache _cache;
+        var cachedData = await _cache.GetStringAsync(key);
+        return string.IsNullOrEmpty(cachedData) ? default : JsonConvert.DeserializeObject<T>(cachedData);
+    }
 
-        public RedisCacheService(IDistributedCache cache) => _cache = cache;
-
-        public async Task<T?> GetAsync<T>(string key)
+    public async Task SetAsync<T>(string key, T value, TimeSpan expiration)
+    {
+        var options = new DistributedCacheEntryOptions
         {
-            var cachedData = await _cache.GetStringAsync(key);
-            return string.IsNullOrEmpty(cachedData) ? default : JsonConvert.DeserializeObject<T>(cachedData);
-        }
+            AbsoluteExpirationRelativeToNow = expiration
+        };
 
-        public async Task SetAsync<T>(string key, T value, TimeSpan expiration)
-        {
-            var options = new DistributedCacheEntryOptions
-            {
-                AbsoluteExpirationRelativeToNow = expiration
-            };
-
-            var serializedData = JsonConvert.SerializeObject(value);
-            await _cache.SetStringAsync(key, serializedData, options);
-        }
+        var serializedData = JsonConvert.SerializeObject(value);
+        await _cache.SetStringAsync(key, serializedData, options);
     }
 }

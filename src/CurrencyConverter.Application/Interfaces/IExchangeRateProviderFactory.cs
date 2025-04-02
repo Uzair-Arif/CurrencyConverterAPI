@@ -1,12 +1,11 @@
-namespace CurrencyConverter.Application.Interfaces
+namespace CurrencyConverter.Application.Interfaces;
+
+public interface IExchangeRateProviderFactory
 {
-    public interface IExchangeRateProviderFactory
-    {
-        /// <summary>
-        /// Retrieves an exchange rate provider by its name.
-        /// </summary>
-        /// <param name="providerName">The name of the provider.</param>
-        /// <returns>An instance of <see cref="IExchangeRateProvider"/>.</returns>
-        IExchangeRateProvider GetProvider(string providerName);
-    }
+    /// <summary>
+    /// Retrieves an exchange rate provider by its name.
+    /// </summary>
+    /// <param name="providerName">The name of the provider.</param>
+    /// <returns>An instance of <see cref="IExchangeRateProvider"/>.</returns>
+    IExchangeRateProvider GetProvider(string providerName);
 }
