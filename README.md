@@ -99,11 +99,11 @@ Below is a screenshot of the current test coverage
 ## Assumptions
 
 1. **Historical Rates Caching**: Historical rates fetching has not been cached because it depends on date selection, and dates can vary significantly. Caching such responses is not performance-efficient. However, we may monitor such scenarios and introduce caching later if needed.
-2. **In-Memory Authentication**: As a proof of concept (POC), an in-memory username and password are created to demonstrate JWT authentication. Ideally, this should be implemented using **ASP.NET Identity** for production-grade applications.
+2. **In-Memory Authentication**: In-memory username and password have been used for now to demonstrate JWT authentication. This approach needs better handling, such as implementing **ASP.NET Identity** for production-grade applications.
 
 ## Future Enhancements
 
-1. **Database Integration**: Implement a database for storing user and transaction data (e.g., ASP.NET Identity).
+1. **Database Integration**: Implement a database for storing user data (e.g. ASP.NET Identity).
 2. **CI/CD Implementation**: Complete the CI/CD pipelines for automatic deployment and scaling on AWS.
 3. **Test Refactoring**: Refactor unit and integration tests for improved maintainability and coverage.
 4. **Additional Providers**: Integrate other exchange rate providers for flexibility.
