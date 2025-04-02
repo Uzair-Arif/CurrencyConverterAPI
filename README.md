@@ -103,3 +103,4 @@ Below is a screenshot of the current test coverage
 3. **Test Refactoring**: Refactor unit and integration tests for improved maintainability and coverage.
 4. **Additional Providers**: Integrate other exchange rate providers for flexibility.
 5. **Swagger Examples**: Add detailed Swagger examples for all API endpoints to improve developer experience and provide interactive API documentation.
+6. **Standard API Response Model**: Create a consistent API response structure (e.g., a `BaseModel`) to ensure uniformity across all endpoints, making it easier for developers to work with and understand the API.
