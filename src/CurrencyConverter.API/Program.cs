@@ -69,7 +69,6 @@ builder.Services.AddAuthenticationServices(builder.Configuration);
 builder.Services.AddRateLimitingServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 
-
 // Register infrastructure services
 builder.Services.AddTelemetryServices(builder.Configuration);
 builder.Services.AddCachingServices(builder.Configuration);
