@@ -66,9 +66,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 builder.Services.AddAuthenticationServices(builder.Configuration);
-builder.Services.AddSingleton<TokenService>();
 builder.Services.AddRateLimitingServices(builder.Configuration);
-
 builder.Services.AddApplicationServices();
 
 
