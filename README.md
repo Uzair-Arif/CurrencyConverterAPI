@@ -103,9 +103,10 @@ Below is a screenshot of the current test coverage
 
 ## Future Enhancements
 
-1. **Database Integration**: Implement a database for storing user data (e.g. ASP.NET Identity).
+1. **Database Integration**: Implement a database for storing user data (e.g., ASP.NET Identity).
 2. **CI/CD Implementation**: Complete the CI/CD pipelines for automatic deployment and scaling on AWS.
 3. **Test Refactoring**: Refactor unit and integration tests for improved maintainability and coverage.
 4. **Additional Providers**: Integrate other exchange rate providers for flexibility.
 5. **Swagger Examples**: Add detailed Swagger examples for all API endpoints to improve developer experience and provide interactive API documentation.
 6. **Standard API Response Model**: Create a consistent API response structure (e.g., a `BaseModel`) to ensure uniformity across all endpoints, making it easier for developers to work with and understand the API.
+7. **Strict Code Quality Enforcement**: Configure the build pipeline to treat all warnings as errors. This ensures that the code adheres to the highest standards of quality and prevents potential issues from being overlooked during development.
